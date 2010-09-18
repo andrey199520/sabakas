@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Xml;
+using System.Xml.Schema;
+using System.IO;
 
 
 namespace Scanerz
@@ -105,13 +108,63 @@ namespace Scanerz
 
         }
 
+        private void XmlAddPacket(String cp, String SourceAddress, String DestinationAddress, String Version, String HeaderLength, String DifferentiatedServices,
+            String TotalLength, String Identification, String Flags, String FragmentationOffset, String TTL, String ProtocolType, String Checksum, String Option)
+        {
+            String Path = DateTime.Now.ToString("ddmmyyyy") + "log.xml";
+            try
+            {
+                XmlDocument XmlDoc = new XmlDocument();
+                using (FileStream fStream = new FileStream(Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    XmlDoc.Load(fStream);
+                    fStream.Close();
+                }
+                
+                XmlAttribute newatrr;
+                XmlElement newitem2=XmlDoc.CreateElement("Пакеты");
+                XmlElement newitem;
+
+                newitem = XmlDoc.CreateElement("Пакет");
+
+                newitem.SetAttribute("НомерПакета", cp);
+                newitem.SetAttribute("Откуда", SourceAddress);
+                newitem.SetAttribute("Куда", DestinationAddress);
+                newitem.SetAttribute("Версия", Version);
+                newitem.SetAttribute("Длина", HeaderLength);
+                newitem.SetAttribute("Сервисы", DifferentiatedServices);
+                newitem.SetAttribute("ОбщаяДлина", TotalLength);
+                newitem.SetAttribute("Идентификатор", Identification);
+                newitem.SetAttribute("Флаги", Flags);
+                newitem.SetAttribute("Смещение", FragmentationOffset);
+                newitem.SetAttribute("ТТЛ", TTL);
+                newitem.SetAttribute("ТипПротокола", ProtocolType);
+                newitem.SetAttribute("КонтрольнаяСумма", Checksum);
+                newitem.SetAttribute("Опция", Option);     
+
+                newitem2.AppendChild(newitem);
+                XmlDoc.DocumentElement.InsertAfter(newitem2, XmlDoc.DocumentElement.LastChild);
+                FileStream writer = new FileStream(Path, FileMode.Truncate, FileAccess.Write, FileShare.ReadWrite);
+                XmlDoc.Save(writer);
+                writer.Close();
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.ToString(), "sabakas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void OnAddRowIP(byte[] byteData, int nReceived)
         {
             IPHeader ipHeader = new IPHeader(byteData, nReceived);
             countpackets++;
-            dgvPackets.Rows.Add(countpackets, ipHeader.SourceAddress.ToString(), ipHeader.DestinationAddress.ToString(), ipHeader.Version, ipHeader.HeaderLength, ipHeader.DifferentiatedServices, ipHeader.TotalLength, ipHeader.Identification,
+            dgvPackets.Rows.Add(countpackets, ipHeader.SourceAddress.ToString(), ipHeader.DestinationAddress.ToString(), 
+              ipHeader.Version, ipHeader.HeaderLength, ipHeader.DifferentiatedServices, ipHeader.TotalLength, ipHeader.Identification,
     ipHeader.Flags, ipHeader.FragmentationOffset, ipHeader.TTL, ipHeader.ProtocolType, ipHeader.Checksum, "");
+
+            XmlAddPacket(countpackets.ToString(), ipHeader.SourceAddress.ToString(), ipHeader.DestinationAddress.ToString(),
+              ipHeader.Version, ipHeader.HeaderLength, ipHeader.DifferentiatedServices, ipHeader.TotalLength, ipHeader.Identification,
+    ipHeader.Flags, ipHeader.FragmentationOffset, ipHeader.TTL, ipHeader.ProtocolType.ToString(), ipHeader.Checksum, "");
         }
 
         private static string ConvertToString(byte[] bytes)
@@ -220,7 +273,7 @@ namespace Scanerz
         }
 
 
-   // вывод дампа
+   // Вывод дампа
         public void Dump(byte[] bytes , int len)
         {
             
@@ -249,10 +302,9 @@ namespace Scanerz
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Чето не хочу работать с дампом!", "sabakas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "sabakas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
             
-
         }
 
         //-----------------------------------------------------------------------------------------------------------------------
@@ -287,10 +339,36 @@ namespace Scanerz
 
                     //Старт прием пакетов асинхроннно. Начинает выполнение асинхронного приема данных с подключенного объекта Socket.
                     mainSocket.BeginReceive(byteData, 0, byteData.Length, SocketFlags.None, new AsyncCallback(OnReceive), null);
+
+                    //Создаем XML фаил , лог пакетов
+
+                    XmlTextWriter writer = null;
+                    try
+                    {
+                        String Path = DateTime.Now.ToString("ddmmyyyy") + "log.xml";
+                        writer = new XmlTextWriter(Path, System.Text.Encoding.Unicode);
+
+                        writer.WriteStartDocument();
+                        writer.WriteStartElement("Старт");
+
+                            writer.WriteStartElement("Начало");
+                            writer.WriteAttributeString("ДатаСтарта", DateTime.Now.ToString());
+                            writer.WriteEndElement();
+                        
+                        writer.WriteEndElement();
+                        writer.WriteEndDocument();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка: " + ex.Message);
+                    }
+                    finally
+                    {
+                        if (writer != null)
+                            writer.Close();
+                    }
                                          
             }
-
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "sabakas", MessageBoxButtons.OK, MessageBoxIcon.Error);

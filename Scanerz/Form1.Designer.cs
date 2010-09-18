@@ -36,6 +36,23 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.frmDump = new System.Windows.Forms.GroupBox();
             this.dgvDump = new System.Windows.Forms.DataGridView();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.фаилToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,27 +75,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.frmPackets = new System.Windows.Forms.GroupBox();
             this.dgvPackets = new System.Windows.Forms.DataGridView();
-            this.frmParamProt = new System.Windows.Forms.GroupBox();
-            this.dgvParamProt = new System.Windows.Forms.DataGridView();
-            this.Pole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +89,10 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.frmParamProt = new System.Windows.Forms.GroupBox();
+            this.dgvParamProt = new System.Windows.Forms.DataGridView();
+            this.Pole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frmDump.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDump)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -174,6 +174,112 @@
             this.dgvDump.RowTemplate.Height = 24;
             this.dgvDump.Size = new System.Drawing.Size(1029, 99);
             this.dgvDump.TabIndex = 1;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Адрес";
+            this.Column16.Name = "Column16";
+            this.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column16.Width = 68;
+            // 
+            // Column17
+            // 
+            this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column17.HeaderText = "01";
+            this.Column17.Name = "Column17";
+            this.Column17.Width = 46;
+            // 
+            // Column18
+            // 
+            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column18.HeaderText = "02";
+            this.Column18.Name = "Column18";
+            this.Column18.Width = 46;
+            // 
+            // Column19
+            // 
+            this.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column19.HeaderText = "03";
+            this.Column19.Name = "Column19";
+            this.Column19.Width = 46;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "04";
+            this.Column20.Name = "Column20";
+            this.Column20.Width = 46;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "05";
+            this.Column21.Name = "Column21";
+            this.Column21.Width = 46;
+            // 
+            // Column22
+            // 
+            this.Column22.HeaderText = "06";
+            this.Column22.Name = "Column22";
+            this.Column22.Width = 46;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "07";
+            this.Column23.Name = "Column23";
+            this.Column23.Width = 46;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "08";
+            this.Column24.Name = "Column24";
+            this.Column24.Width = 46;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "09";
+            this.Column25.Name = "Column25";
+            this.Column25.Width = 46;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "0А";
+            this.Column26.Name = "Column26";
+            this.Column26.Width = 47;
+            // 
+            // Column27
+            // 
+            this.Column27.HeaderText = "0В";
+            this.Column27.Name = "Column27";
+            this.Column27.Width = 47;
+            // 
+            // Column28
+            // 
+            this.Column28.HeaderText = "0С";
+            this.Column28.Name = "Column28";
+            this.Column28.Width = 47;
+            // 
+            // Column29
+            // 
+            this.Column29.HeaderText = "0D";
+            this.Column29.Name = "Column29";
+            this.Column29.Width = 48;
+            // 
+            // Column30
+            // 
+            this.Column30.HeaderText = "0Е";
+            this.Column30.Name = "Column30";
+            this.Column30.Width = 47;
+            // 
+            // Column31
+            // 
+            this.Column31.HeaderText = "0F";
+            this.Column31.Name = "Column31";
+            this.Column31.Width = 46;
+            // 
+            // Column32
+            // 
+            this.Column32.HeaderText = "Содержимое пакета";
+            this.Column32.Name = "Column32";
+            this.Column32.Width = 200;
             // 
             // menuStrip2
             // 
@@ -316,7 +422,7 @@
             this.start.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(23, 22);
-            this.start.Text = "toolStripButton3";
+            this.start.Text = "start";
             this.start.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
@@ -415,151 +521,6 @@
             this.dgvPackets.Size = new System.Drawing.Size(724, 289);
             this.dgvPackets.TabIndex = 1;
             // 
-            // frmParamProt
-            // 
-            this.frmParamProt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.frmParamProt.Controls.Add(this.dgvParamProt);
-            this.frmParamProt.Location = new System.Drawing.Point(3, 3);
-            this.frmParamProt.Name = "frmParamProt";
-            this.frmParamProt.Size = new System.Drawing.Size(275, 307);
-            this.frmParamProt.TabIndex = 5;
-            this.frmParamProt.TabStop = false;
-            this.frmParamProt.Text = "Параметры протокола";
-            // 
-            // dgvParamProt
-            // 
-            this.dgvParamProt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvParamProt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParamProt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Pole,
-            this.Column14});
-            this.dgvParamProt.Location = new System.Drawing.Point(5, 18);
-            this.dgvParamProt.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvParamProt.Name = "dgvParamProt";
-            this.dgvParamProt.RowTemplate.Height = 24;
-            this.dgvParamProt.Size = new System.Drawing.Size(265, 284);
-            this.dgvParamProt.TabIndex = 1;
-            // 
-            // Pole
-            // 
-            this.Pole.HeaderText = "Поле";
-            this.Pole.Name = "Pole";
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Значение";
-            this.Column14.Name = "Column14";
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Адрес";
-            this.Column16.Name = "Column16";
-            this.Column16.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column16.Width = 68;
-            // 
-            // Column17
-            // 
-            this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column17.HeaderText = "01";
-            this.Column17.Name = "Column17";
-            this.Column17.Width = 46;
-            // 
-            // Column18
-            // 
-            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column18.HeaderText = "02";
-            this.Column18.Name = "Column18";
-            this.Column18.Width = 46;
-            // 
-            // Column19
-            // 
-            this.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column19.HeaderText = "03";
-            this.Column19.Name = "Column19";
-            this.Column19.Width = 46;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "04";
-            this.Column20.Name = "Column20";
-            this.Column20.Width = 46;
-            // 
-            // Column21
-            // 
-            this.Column21.HeaderText = "05";
-            this.Column21.Name = "Column21";
-            this.Column21.Width = 46;
-            // 
-            // Column22
-            // 
-            this.Column22.HeaderText = "06";
-            this.Column22.Name = "Column22";
-            this.Column22.Width = 46;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "07";
-            this.Column23.Name = "Column23";
-            this.Column23.Width = 46;
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "08";
-            this.Column24.Name = "Column24";
-            this.Column24.Width = 46;
-            // 
-            // Column25
-            // 
-            this.Column25.HeaderText = "09";
-            this.Column25.Name = "Column25";
-            this.Column25.Width = 46;
-            // 
-            // Column26
-            // 
-            this.Column26.HeaderText = "0А";
-            this.Column26.Name = "Column26";
-            this.Column26.Width = 47;
-            // 
-            // Column27
-            // 
-            this.Column27.HeaderText = "0В";
-            this.Column27.Name = "Column27";
-            this.Column27.Width = 47;
-            // 
-            // Column28
-            // 
-            this.Column28.HeaderText = "0С";
-            this.Column28.Name = "Column28";
-            this.Column28.Width = 47;
-            // 
-            // Column29
-            // 
-            this.Column29.HeaderText = "0D";
-            this.Column29.Name = "Column29";
-            this.Column29.Width = 48;
-            // 
-            // Column30
-            // 
-            this.Column30.HeaderText = "0Е";
-            this.Column30.Name = "Column30";
-            this.Column30.Width = 47;
-            // 
-            // Column31
-            // 
-            this.Column31.HeaderText = "0F";
-            this.Column31.Name = "Column31";
-            this.Column31.Width = 46;
-            // 
-            // Column32
-            // 
-            this.Column32.HeaderText = "Содержимое пакета";
-            this.Column32.Name = "Column32";
-            this.Column32.Width = 200;
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Пакет №";
@@ -631,6 +592,45 @@
             // 
             this.Column15.HeaderText = "Опция";
             this.Column15.Name = "Column15";
+            // 
+            // frmParamProt
+            // 
+            this.frmParamProt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.frmParamProt.Controls.Add(this.dgvParamProt);
+            this.frmParamProt.Location = new System.Drawing.Point(3, 3);
+            this.frmParamProt.Name = "frmParamProt";
+            this.frmParamProt.Size = new System.Drawing.Size(275, 307);
+            this.frmParamProt.TabIndex = 5;
+            this.frmParamProt.TabStop = false;
+            this.frmParamProt.Text = "Параметры протокола";
+            // 
+            // dgvParamProt
+            // 
+            this.dgvParamProt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvParamProt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParamProt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Pole,
+            this.Column14});
+            this.dgvParamProt.Location = new System.Drawing.Point(5, 18);
+            this.dgvParamProt.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvParamProt.Name = "dgvParamProt";
+            this.dgvParamProt.RowTemplate.Height = 24;
+            this.dgvParamProt.Size = new System.Drawing.Size(265, 284);
+            this.dgvParamProt.TabIndex = 1;
+            // 
+            // Pole
+            // 
+            this.Pole.HeaderText = "Поле";
+            this.Pole.Name = "Pole";
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Значение";
+            this.Column14.Name = "Column14";
             // 
             // scanerz
             // 
