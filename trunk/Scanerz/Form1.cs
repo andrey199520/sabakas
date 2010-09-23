@@ -25,7 +25,7 @@ namespace Scanerz
 
     public partial class scanerz : Form
     {
-        int countpackets = 0;
+        int countpackets=0;
         private Socket mainSocket;                          //сокет который захватывает все входящие пакеты
         private byte[] byteData = new byte[4096];
    
@@ -114,7 +114,7 @@ namespace Scanerz
         private void XmlAddPacket(String cp, String SourceAddress, String DestinationAddress, String Version, String HeaderLength, String DifferentiatedServices,
             String TotalLength, String Identification, String Flags, String FragmentationOffset, String TTL, String ProtocolType, String Checksum, String Option)
         {
-            String Path = DateTime.Now.ToString("yyyy") + "log.xml";
+            String Path = string.Format("log{0:yyyyMMddHH}.xml", DateTime.Now);
             try
             {
                 XmlDocument XmlDoc = new XmlDocument();
@@ -162,8 +162,8 @@ namespace Scanerz
 
         private void AddPacketToGrid()
         {
-            String Path = DateTime.Now.ToString("yyyy") + "log.xml";
-
+            String Path = string.Format("log{0:yyyyMMddHH}.xml", DateTime.Now);
+            dgvPackets.Rows.Clear();
             XmlTextReader reader = null;
 
             try
@@ -187,8 +187,8 @@ namespace Scanerz
                             String TTL = reader.GetAttribute("ТТЛ");
                             String ProtocolType = reader.GetAttribute("ТипПротокола");
                             String Checksum = reader.GetAttribute("КонтрольнаяСумма");
-                            String Option = reader.GetAttribute("Опция");
-                            dgvPackets.Rows.Add(cp, SourceAddress, DestinationAddress,Version, HeaderLength, DifferentiatedServices, TotalLength,
+                            String Option = reader.GetAttribute("Опция");                      
+                            dgvPackets.Rows.Insert(0 ,cp, SourceAddress, DestinationAddress, Version, HeaderLength, DifferentiatedServices, TotalLength,
                             Identification, Flags, FragmentationOffset, TTL, ProtocolType, Checksum, Option);
                         }
 
@@ -338,8 +338,7 @@ namespace Scanerz
             
             this.dgvDump.Rows.Clear();
             len *= 4;
-            try
-            {
+            try{
                 byte[] a = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
                 for (int i = 0; i < len / 15; i++)
@@ -353,9 +352,9 @@ namespace Scanerz
                     dgvDump.Rows.Add(i.ToString("X2"), a[0].ToString("X2"), a[1].ToString("X2"), a[2].ToString("X2"), a[3].ToString("X2"), a[4].ToString("X2"),
                         a[5].ToString("X2"), a[6].ToString("X2"), a[7].ToString("X2"), a[8].ToString("X2"),
                         a[9].ToString("X2"), a[10].ToString("X2"), a[11].ToString("X2"), a[12].ToString("X2"), a[13].ToString("X2"), a[14].ToString("X2"),
-                        a[0].ToString() + a[1].ToString() + a[2].ToString() + a[3].ToString() + a[4].ToString() +
-                        a[5].ToString() + a[6].ToString() + a[7].ToString() + a[8].ToString() + a[10].ToString() +
-                        a[11].ToString() + a[12].ToString() + a[13].ToString() + a[14].ToString());
+                        ((char)a[0]).ToString() + ((char)a[1]).ToString() + ((char)a[2]).ToString() + ((char)a[3]).ToString() + ((char)a[4]).ToString()
+                        + ((char)a[5]).ToString() + ((char)a[6]).ToString() + ((char)a[7]).ToString() + ((char)a[8]).ToString() + ((char)a[9]).ToString()
+                        + ((char)a[10]).ToString() + ((char)a[11]).ToString() + ((char)a[12]).ToString() + ((char)a[13]).ToString() + ((char)a[14]).ToString());
                 }
 
             }
@@ -404,7 +403,7 @@ namespace Scanerz
                     XmlTextWriter writer = null;
                     try
                     {
-                        String Path = DateTime.Now.ToString("yyyy") + "log.xml";
+                        String Path = string.Format("log{0:yyyyMMddHH}.xml", DateTime.Now);
                         writer = new XmlTextWriter(Path, System.Text.Encoding.Unicode);
 
                         writer.WriteStartDocument();
@@ -448,8 +447,9 @@ namespace Scanerz
                     strIP = ip.ToString();
                     tscmbInterface.Items.Add(strIP);
                 }
-            }    
+            }
 
+            
         }
 
        // Останавливаем сканирование
@@ -470,6 +470,16 @@ namespace Scanerz
             this.dgvParamProt.Rows.Clear();
             this.dgvPackets.Rows.Clear();
             this.dgvDump.Rows.Clear();
+        }
+
+        private void dgvPackets_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+
+        }
+
+        private void dgvPackets_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+
         }
     }
 }

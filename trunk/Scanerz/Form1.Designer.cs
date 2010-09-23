@@ -479,6 +479,7 @@
             // 
             // dgvPackets
             // 
+            this.dgvPackets.AllowUserToOrderColumns = true;
             this.dgvPackets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -520,6 +521,8 @@
             this.dgvPackets.RowTemplate.Height = 24;
             this.dgvPackets.Size = new System.Drawing.Size(724, 289);
             this.dgvPackets.TabIndex = 1;
+            this.dgvPackets.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvPackets_ColumnAdded);
+            this.dgvPackets.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvPackets_SortCompare);
             // 
             // Column1
             // 
@@ -642,6 +645,7 @@
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.frmDump);
             this.Controls.Add(this.statusStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "scanerz";
             this.Text = "Сетевой анализатор";
             this.Load += new System.EventHandler(this.scanerz_Load);
