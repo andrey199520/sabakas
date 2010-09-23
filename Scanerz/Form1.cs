@@ -60,6 +60,7 @@ namespace Scanerz
             }
         }
 
+
         // ПАРСИМ
         private void ParseData(byte[] byteData, int nReceived)
         {        
@@ -108,10 +109,12 @@ namespace Scanerz
 
         }
 
+// добавляем в фаил xml информацию о пакете
+
         private void XmlAddPacket(String cp, String SourceAddress, String DestinationAddress, String Version, String HeaderLength, String DifferentiatedServices,
             String TotalLength, String Identification, String Flags, String FragmentationOffset, String TTL, String ProtocolType, String Checksum, String Option)
         {
-            String Path = DateTime.Now.ToString("ddmmyyyy") + "log.xml";
+            String Path = DateTime.Now.ToString("yyyy") + "log.xml";
             try
             {
                 XmlDocument XmlDoc = new XmlDocument();
@@ -121,7 +124,7 @@ namespace Scanerz
                     fStream.Close();
                 }
                 
-                XmlAttribute newatrr;
+                //XmlAttribute newatrr;
                 XmlElement newitem2=XmlDoc.CreateElement("Пакеты");
                 XmlElement newitem;
 
@@ -154,19 +157,75 @@ namespace Scanerz
             }
         }
 
+
+ // считываем из xml фаила и выводим в грид
+
+        private void AddPacketToGrid()
+        {
+            String Path = DateTime.Now.ToString("yyyy") + "log.xml";
+
+            XmlTextReader reader = null;
+
+            try
+            {
+                reader = new XmlTextReader(Path);
+                reader.WhitespaceHandling = WhitespaceHandling.None;	// пропускаем пустые узлы
+                while (reader.Read())
+                    if (reader.NodeType == XmlNodeType.Element)
+                        if (reader.Name == "Пакет" && reader.AttributeCount != 0)
+                        {
+                            String cp = reader.GetAttribute("НомерПакета");
+                            String SourceAddress = reader.GetAttribute("Откуда");
+                            String DestinationAddress = reader.GetAttribute("Куда");
+                            String Version = reader.GetAttribute("Версия");
+                            String HeaderLength = reader.GetAttribute("Длина");
+                            String DifferentiatedServices = reader.GetAttribute("Сервисы");
+                            String TotalLength = reader.GetAttribute("ОбщаяДлина");
+                            String Identification = reader.GetAttribute("Идентификатор");
+                            String Flags = reader.GetAttribute("Флаги");
+                            String FragmentationOffset = reader.GetAttribute("Смещение");
+                            String TTL = reader.GetAttribute("ТТЛ");
+                            String ProtocolType = reader.GetAttribute("ТипПротокола");
+                            String Checksum = reader.GetAttribute("КонтрольнаяСумма");
+                            String Option = reader.GetAttribute("Опция");
+                            dgvPackets.Rows.Add(cp, SourceAddress, DestinationAddress,Version, HeaderLength, DifferentiatedServices, TotalLength,
+                            Identification, Flags, FragmentationOffset, TTL, ProtocolType, Checksum, Option);
+                        }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+            }
+
+        }
+
+
+//  заполняем данные в  главном гриде
+
         private void OnAddRowIP(byte[] byteData, int nReceived)
         {
             IPHeader ipHeader = new IPHeader(byteData, nReceived);
             countpackets++;
-            dgvPackets.Rows.Add(countpackets, ipHeader.SourceAddress.ToString(), ipHeader.DestinationAddress.ToString(), 
-              ipHeader.Version, ipHeader.HeaderLength, ipHeader.DifferentiatedServices, ipHeader.TotalLength, ipHeader.Identification,
-    ipHeader.Flags, ipHeader.FragmentationOffset, ipHeader.TTL, ipHeader.ProtocolType, ipHeader.Checksum, "");
+    //        dgvPackets.Rows.Add(countpackets, ipHeader.SourceAddress.ToString(), ipHeader.DestinationAddress.ToString(), 
+    //          ipHeader.Version, ipHeader.HeaderLength, ipHeader.DifferentiatedServices, ipHeader.TotalLength, ipHeader.Identification,
+    //ipHeader.Flags, ipHeader.FragmentationOffset, ipHeader.TTL, ipHeader.ProtocolType, ipHeader.Checksum, "");
 
             XmlAddPacket(countpackets.ToString(), ipHeader.SourceAddress.ToString(), ipHeader.DestinationAddress.ToString(),
               ipHeader.Version, ipHeader.HeaderLength, ipHeader.DifferentiatedServices, ipHeader.TotalLength, ipHeader.Identification,
     ipHeader.Flags, ipHeader.FragmentationOffset, ipHeader.TTL, ipHeader.ProtocolType.ToString(), ipHeader.Checksum, "");
+
+            AddPacketToGrid();
         }
 
+ 
+// Конвертируем массив байтов в строку        
         private static string ConvertToString(byte[] bytes)
         {
             string s = @"";
@@ -212,7 +271,7 @@ namespace Scanerz
                     this.dgvParamProt.Rows.Add("Urgent Pointer:", tcpHeader.UrgentPointer);
                 }
 
-                Dump(tcpHeader.Data, Convert.ToInt32(tcpHeader.MessageLength));
+                Dump(tcpHeader.Data, Convert.ToInt32(tcpHeader.HeaderLength));
 
         }
 
@@ -289,7 +348,7 @@ namespace Scanerz
                     {
 
                         a[j] = bytes[(i + 1) * j];
-
+                        
                     }
                     dgvDump.Rows.Add(i.ToString("X2"), a[0].ToString("X2"), a[1].ToString("X2"), a[2].ToString("X2"), a[3].ToString("X2"), a[4].ToString("X2"),
                         a[5].ToString("X2"), a[6].ToString("X2"), a[7].ToString("X2"), a[8].ToString("X2"),
@@ -345,7 +404,7 @@ namespace Scanerz
                     XmlTextWriter writer = null;
                     try
                     {
-                        String Path = DateTime.Now.ToString("ddmmyyyy") + "log.xml";
+                        String Path = DateTime.Now.ToString("yyyy") + "log.xml";
                         writer = new XmlTextWriter(Path, System.Text.Encoding.Unicode);
 
                         writer.WriteStartDocument();
