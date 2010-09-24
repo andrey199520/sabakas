@@ -16,12 +16,12 @@ D:\Documents and Settings\Admin\мои документы\visual studio 2010\Pro
 D:\Documents and Settings\Admin\мои документы\visual studio 2010\Projects\Scanerz\Scanerz\obj\x86\Debug\Scanerz.Properties.Resources.resources
 D:\Documents and Settings\Admin\мои документы\visual studio 2010\Projects\Scanerz\Scanerz\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Documents and Settings\Admin\мои документы\visual studio 2010\Projects\Scanerz\Scanerz\obj\x86\Debug\GenerateResource.write.1.tlog
-D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Scanerz.exe
-D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Scanerz.pdb
-D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\bin\Debug\Scanerz.exe
-D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\bin\Debug\Scanerz.pdb
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Scanerz.scanerz.resources
-D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Scanerz.Properties.Resources.resources
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\bin\Debug\Sabakas.exe
+D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\bin\Debug\Sabakas.pdb
+D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Sabakas.Properties.Resources.resources
+D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Sabakas.exe
+D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Sabakas.pdb

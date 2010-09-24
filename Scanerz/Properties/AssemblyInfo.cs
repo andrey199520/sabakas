@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Анализатор сетевого трафика")]
 [assembly: AssemblyDescription("Анализатор сетевого трафика")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("unrichlab")]
-[assembly: AssemblyProduct("sabakas")]
-[assembly: AssemblyCopyright("Copyright © unrichlab 2010")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("ёжъ и ко")]
+[assembly: AssemblyProduct("sabakas программа анализатор сетевого трафика")]
+[assembly: AssemblyCopyright("Copyright © ёжъ 2010 (GNU/GPL)")]
+[assembly: AssemblyTrademark("©")]
 [assembly: AssemblyCulture("")]
 
 // Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.*")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.*")]
+[assembly: AssemblyFileVersion("1.1")]
