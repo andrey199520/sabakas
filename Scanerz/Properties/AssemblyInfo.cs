@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("Анализатор сетевого трафика")]
-[assembly: AssemblyDescription("Анализатор сетевого трафика")]
+[assembly: AssemblyDescription("Анализатор сетевого трафика(sabakas lite). lite программа анализатор сетевого трафика. Использует xml фаил для вывода трафика. На основе .net sockets. Принимает ip пакеты.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ёжъ и ко")]
-[assembly: AssemblyProduct("sabakas программа анализатор сетевого трафика")]
-[assembly: AssemblyCopyright("Copyright © ёжъ 2010 (GNU/GPL)")]
-[assembly: AssemblyTrademark("©")]
+[assembly: AssemblyCompany("gen")]
+[assembly: AssemblyProduct("sabakas lite")]
+[assembly: AssemblyCopyright("Copyright © gen 2010 (GNU/GPL)")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 

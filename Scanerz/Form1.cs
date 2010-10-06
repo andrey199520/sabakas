@@ -30,17 +30,15 @@ namespace Scanerz
         private byte[] byteData = new byte[4096];
    
         private delegate void AddRowIP(byte[] byteData, int nReceived);
-        private delegate void AddRowTCPProtocol(TCPHeader TCPHeader);
-        private delegate void AddRowUDPProtocol(UDPHeader udpHeader);
-        private delegate void AddRowDNSProtocol(byte[] byteData, int nLength);
+
 
         public scanerz()
         {
             InitializeComponent();
         }
         //------------------------------------------------------------------------------------------------------------------
-        
-//Принимаем данные и обрабатываем
+
+ /// Принимаем данные и обрабатываем
         private void OnReceive(IAsyncResult ar)
         {
             try
@@ -62,7 +60,7 @@ namespace Scanerz
         }
 
 
-// Парсим полученный массив байтов в читабельный вид 
+/// Парсим полученный массив байтов в читабельный вид 
         private void ParseData(byte[] byteData, int nReceived)
         {        
             IPHeader ipHeader = new IPHeader(byteData, nReceived);
@@ -111,7 +109,7 @@ namespace Scanerz
         }
 
 
-// добавляем в фаил xml информацию о пакете с udp протоколом
+/// добавляем в фаил xml информацию о пакете с udp протоколом
 
         private void XmlAddPacket(String cp, String SourceAddress, String DestinationAddress, String Version, String HeaderLength, String DifferentiatedServices,
             String TotalLength, String Identification, String Flags, String FragmentationOffset, String TTL, String ProtocolType, String Checksum, String Option,
@@ -166,7 +164,7 @@ namespace Scanerz
 
 
 
-// добавляем в фаил xml информацию о пакете с TCP протоколом
+/// добавляем в фаил xml информацию о пакете с TCP протоколом
 
         private void XmlAddPacket(String cp, String SourceAddress, String DestinationAddress, String Version, String HeaderLength, String DifferentiatedServices,
             String TotalLength, String Identification, String Flags, String FragmentationOffset, String TTL, String ProtocolType, String Checksum, String Option,
@@ -226,7 +224,7 @@ namespace Scanerz
         }
 
 
- // считываем из xml фаила и выводим в главный грид
+/// считываем из xml фаила и выводим в главный грид
 
         private void AddPacketToGrid()
         {
@@ -272,7 +270,7 @@ namespace Scanerz
         }
 
 
-//  заполняем данные в  грид и в XML фаиле
+///  заполняем данные в  грид и в XML фаиле
 
         private void OnAddRowIP(byte[] byteData, int nReceived)
         {
@@ -329,8 +327,8 @@ namespace Scanerz
 
         }
 
- 
-// Конвертируем массив байтов в строку        
+
+/// Конвертируем массив байтов в строку        
         private static string ConvertToString(byte[] bytes)
         {
             string s = @"";
@@ -342,7 +340,7 @@ namespace Scanerz
             return s;
         }
 
-// Конвертируем строку в массив байтов   
+/// Конвертируем строку в массив байтов   
         public static byte[] StrToByteArray(string str)
         {
             System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
@@ -350,7 +348,7 @@ namespace Scanerz
         }
 
 
-//Ф-ия выводит информацию о TCP
+/// Ф-ия выводит информацию о TCP
         private void ShowTCP(String SourcePort, String DestinationPort, String SequenceNumber, String AcknowledgementNumber, String HeaderLength, String Flags, String WindowSize, String Checksum, String UrgentPointer)
         {
             this.dgvParamProt.Rows.Clear();
@@ -381,7 +379,7 @@ namespace Scanerz
         }
 
 
-//Ф-ия выводит информацию о UDP 
+/// Ф-ия выводит информацию о UDP 
         private void ShowUDP(String SourcePort, String DestinationPort, String Length, String Checksum)
         {
             this.dgvParamProt.Rows.Clear();
@@ -404,7 +402,7 @@ namespace Scanerz
         }
 
 
-//Ф-ия выводит информацию о DNS
+/// Ф-ия выводит информацию о DNS
         public void MakeDNS(byte[] byteData, int nLength)
         {
             DNSHeader dnsHeader = new DNSHeader(byteData, nLength);
@@ -431,7 +429,7 @@ namespace Scanerz
         }
 
 
-// Ф-ия выводит содержимое пакета
+/// Ф-ия выводит содержимое пакета
         public void ShowDump(byte[] bytes , int len)
         {         
             this.dgvDump.Rows.Clear();
@@ -459,7 +457,7 @@ namespace Scanerz
             }           
         }
 
-// Ф-ия выводит содержимое пакета в 2 грида(дампа и параметров протокола)
+/// Ф-ия выводит содержимое пакета в 2 грида(дампа и параметров протокола)
         public void AdddgvParamProtandAdddgvDump(string numpacket){
             String Path = string.Format("log{0:yyyyMMddHH}.xml", DateTime.Now);
             XmlTextReader reader = null;
@@ -505,7 +503,7 @@ namespace Scanerz
 }
 
 
-//начинаем сканирование сети  и прием пакетов с последующим парсингом (разбором по частям)
+/// начинаем сканирование сети  и прием пакетов с последующим парсингом (разбором по частям)
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             try
@@ -576,7 +574,7 @@ namespace Scanerz
         }
 
 
-//загрузка формы. проверяем интерфесы. какие существуют на ПК
+/// загрузка формы. проверяем интерфесы. какие существуют на ПК
         private void scanerz_Load(object sender, EventArgs e)
         {
             string strIP = null;
@@ -589,11 +587,9 @@ namespace Scanerz
                     tscmbInterface.Items.Add(strIP);
                 }
             }
-
-            
         }
 
-// Останавливаем сканирование
+/// Останавливаем сканирование
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             try
@@ -606,7 +602,7 @@ namespace Scanerz
             }
         }
 
-// Очистить все гриды
+/// Очистить все гриды
         private void очиститьВсеToolStripMenuItem_Click(object sender, EventArgs e)
         {           
             this.dgvParamProt.Rows.Clear();
@@ -614,13 +610,31 @@ namespace Scanerz
             this.dgvDump.Rows.Clear();
         }
 
-// Обработчик события нажатия на грид
+/// Обработчик события нажатия на грид
         private void dgvPackets_Click(object sender, EventArgs e)
         {
+            if (this.dgvPackets.RowCount>1)
+            {
             this.Text = (this.dgvPackets.CurrentRow.Index).ToString() + "    ^    " + this.dgvPackets.Rows[this.dgvPackets.CurrentRow.Index].Cells[0].Value;
-
             String st = this.dgvPackets.Rows[this.dgvPackets.CurrentRow.Index].Cells[0].Value.ToString();
             AdddgvParamProtandAdddgvDump(st);
+            }
+
+        }
+
+
+        private void сканироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        private void nIcon_BalloonTipShown(object sender, EventArgs e)
+        {
+        }
+
+        private void openPorts_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
