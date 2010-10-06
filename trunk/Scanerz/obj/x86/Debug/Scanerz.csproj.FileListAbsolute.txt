@@ -25,3 +25,12 @@ D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\bin\Debu
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Sabakas.Properties.Resources.resources
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Sabakas.exe
 D:\Documents and Settings\Admin\Рабочий стол\sabakas\Scanerz\obj\x86\Debug\Sabakas.pdb
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\Sabakas.exe
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\Sabakas.pdb
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\bin\Debug\Sabakas.exe
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\bin\Debug\Sabakas.pdb
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\Scanerz.scanerz.resources
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\Sabakas.Properties.Resources.resources
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\WORKFOLDER\sabakas\src\sabakas\Scanerz\obj\x86\Debug\GenerateResource.write.1.tlog
